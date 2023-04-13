@@ -389,5 +389,5 @@ With my wishes for a speedy recovery, Ahmed Ayman Al-Saee..🤍
   })
 })
 app.use(bot.webhookCallback('/secret-path'))
-bot.telegram.setWebhook('https://eb96-62-114-104-174.eu.ngrok.io/secret-path')
+bot.telegram.setWebhook('https://baby-blue-salmon-toga.cyclic.app/secret-path')
 
