@@ -4,25 +4,25 @@ const Schema = mongoose.Schema;
 
 const times_of_Drugs = new Schema({
     drug_name : {
-        type : String,
+        type : [Object],
         required : "Name of Drug is Required."
     },
     how_often : {
-        type : Number,
+        type : [Object],
         required : "The Number Of Times The Drug is Taken is Required."
     },
     time_one : {
-        type : String,
+        type : [Object],
         required : "Time For Taking Drug is Required."
     },
     time_two : {
-        type : String
+        type : [Object]
     },
     time_three : {
-        type : String
+        type : [Object]
     },
     usage_of_drug : {
-        type : String
+        type : [Object]
     }
 }) 
 
