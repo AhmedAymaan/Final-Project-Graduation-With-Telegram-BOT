@@ -1,7 +1,7 @@
 const times_of_Drugs = require('../model/times_of_drugs');
 // Show the All Times of Drugs.
 const index = (req, res, next) => {
-    User.find()
+    times_of_Drugs.find()
     .then(response => {
     res.json({
     response
@@ -16,8 +16,8 @@ const index = (req, res, next) => {
 
 //Show a Drug Name and It's Times By ID
 const show = (req, res, next) => {
-    let drugID = req.body.drugID
-    User.findById(drugID)
+    let drug_name = req.body.drug_name
+    times_of_Drugs.find({drug_name:drug_name})
     .then(response => {
     res.json({
     response
@@ -59,7 +59,7 @@ let drug = new times_of_Drugs({
 
 //Update  Drug Name and It's Times By ID
 const update = (req, res, next) => { 
-let drugID = req.body.drugID
+let drug_name = req.body.drug_name
 let updatedData = {
     drug_name : req.body.drug_name,
     how_often : req.body.how_often,
@@ -69,7 +69,7 @@ let updatedData = {
     usage_of_drug : req.body.usage_of_drug
 }
 
-times_of_Drugs.findByIdAndUpdate(drugID, {$set: updatedData})
+times_of_Drugs.findOneAndUpdate({drug_name:drug_name}, {$set: updatedData})
 .then(() => {
 res.json({
     message: 'Drug and It\'s Times updated successfully!'
@@ -85,8 +85,8 @@ res.json({
 //Delete Drug and It's Times
 
 const destroy = (req, res, next) => { 
-    let drugID = req.body.drugID
-    times_of_Drugs.findByIdAndRemove(drugID)
+    let drug_name = req.body.drug_name
+    times_of_Drugs.findOneAndRemove({drug_name:drug_name})
 .then(() => {
     res.json({
         message: 'Drug and It\'s Times Deleted successfully!!!'
