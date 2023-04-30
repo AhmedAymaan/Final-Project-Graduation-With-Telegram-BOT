@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/all-drugs', times_of_drugs_Controller.index)
-router.post('/drug-by-id', times_of_drugs_Controller.show)
+router.post('/drug-by-name', times_of_drugs_Controller.show)
 router.post('/store-drug', times_of_drugs_Controller.store)
 router.post('/update-drug', times_of_drugs_Controller.update)
 router.post('/delete-drug', times_of_drugs_Controller.destroy)
