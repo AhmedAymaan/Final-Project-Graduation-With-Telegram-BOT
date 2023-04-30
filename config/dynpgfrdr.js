@@ -19,8 +19,8 @@ const index = (req, res, next) => {
 
 //Show an Patient
 const show = (req, res, next) => {
-    let patientID = req.body.patientID
-    dynpgfrdr.findById(patientID)
+    let patientName = req.body.patientName
+    dynpgfrdr.find({patientName:patientName})
     .then(response => {
     res.json({
     response
@@ -192,9 +192,10 @@ const destroy =  async (req, res) => {
       )
        // Dynpgfrdr);
     } catch (err) {
-        res.json({
-            message: 'An error Occured!!!'
-        })
+       // res.json({
+            //message: 'An error Occured!!!'
+         console.log  ( err)
+      // })
     }
      // console.log(err);
 }
