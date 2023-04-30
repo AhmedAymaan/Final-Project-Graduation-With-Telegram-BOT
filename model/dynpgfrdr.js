@@ -28,7 +28,7 @@ const PatientSchemaByDoctor = new Schema({
         type: String
     },
     drugs_names: {
-        type: String
+        type: [Object]
     },
     patientGender: {
         type: String
