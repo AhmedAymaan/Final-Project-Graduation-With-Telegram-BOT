@@ -12,6 +12,9 @@ const allDoctors = require("./routes/allDoctors");
 const doctorProfile = require("./routes/doctorProfile");
 const cancer_Type = require('./routes/genralCancerInfo');
 const times_of_drugs = require('./routes/times_of_drugs');
+const communicationWayswithDr = require('./routes/communicationWayswithDr')
+const abnormalSymptoms = require('./routes/abnormalSymptoms')
+
 //
 //
 //
@@ -63,7 +66,8 @@ require('./helpers/extend-node-input-validator')
 app.use('/changepassword',changepassword )
 app.use('/cancer', cancer_Type)
 app.use('/drug_times', times_of_drugs)
-
+app.use('/communicationWays', communicationWayswithDr)
+app.use('/symptoms', abnormalSymptoms)
 
 
 
