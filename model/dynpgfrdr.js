@@ -37,9 +37,12 @@ const PatientSchemaByDoctor = new Schema({
         type: Date,
         default: Date.now()
     },
+    images:{
+        type :[Object]
+    },
     //Images : Start Point =>
     //Image :
-    avatar:{
+  /*  avatar:{
 		type:String
 	},
     // ID of Image in Cloudinary :
@@ -52,10 +55,16 @@ const PatientSchemaByDoctor = new Schema({
     },
     drugSheetImages: {
         type: String
-    },
+    },*/
     doctorInstructionsAndNotes: {
         type: String
     },
+    abnormal_Symptoms:{
+        type : String
+    },
+    additional_Info:{
+        type : String
+    }
 }) 
 
 const PatientSchByDoctor = mongoose.model('PatientSchByDoctor', PatientSchemaByDoctor);
