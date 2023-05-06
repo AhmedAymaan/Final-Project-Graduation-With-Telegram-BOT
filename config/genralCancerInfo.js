@@ -17,10 +17,10 @@ const index = (req, res, next) => {
     })
 }
 
-//Show an Cancer's Informatio BY ID.
+//Show an Cancer's Informatio BY Name.
 const show = (req, res, next) => {
-    let cancerTypeID = req.body.cancerTypeID
-    cancer_Type.findById(cancerTypeID)
+    let cancerTypeName = req.body.cancerTypeName
+    cancer_Type.findOne({cancerTypeName:cancerTypeName})
     .then(response => {
     res.json({
     response
