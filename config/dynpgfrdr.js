@@ -34,25 +34,29 @@ const show = (req, res, next) => {
 
 
 //Adding a new Patient
-/*const store = async(req,res)=>{ 
+const store = async(req,res)=>{ 
     try{ 
      const result=await cloudinary.uploader.upload(req.file.path); 
      let patient=new dynpgfrdr({ 
-       patientName: req.body.patientName, 
-       patientAge: req.body.patientAge, 
-       patientPhoneNumber: req.body.patientPhoneNumber, 
-       patientUsername: req.body.patientUsername, 
-       patientEmail: req.body.patientEmail, 
-       patientPassword:req.body.patientPassword, 
-       cancerType: req.body.cancerType, 
-       diagnosisOfDisease: req.body.diagnosisOfDisease, 
-       drugs: req.body.drugs, 
-       patientGender: req.body.patientGender, 
-       avatar: result.secure_url, 
-       cloudinary_id:result.public_id, 
-       xraysImages: req.body.xraysImages, 
-       drugSheetImages: req.body.drugSheetImages, 
-       doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes 
+    patientName: req.body.patientName,
+    patientAge: req.body.patientAge,
+    patientPhoneNumber: req.body.patientPhoneNumber,
+    patientUsername: req.body.patientUsername,
+    patientEmail: req.body.patientEmail,
+    patientPassword:req.body.patientPassword,
+    cancerType: req.body.cancerType,
+    diagnosisOfDisease: req.body.diagnosisOfDisease,
+    drugs_names: req.body.drugs_names,
+    patientGender: req.body.patientGender,
+    avatar: result.secure_url, 
+    cloudinary_id:result.public_id,
+    //images : req.body.images,
+    /*pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
+    xraysImages: req.body.xraysImages,
+    drugSheetImages: req.body.drugSheetImages,*/
+    doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
+    abnormal_Symptoms : req.body.abnormal_Symptoms,
+    additional_Info : req.body.additional_Info
        
      }); 
      await patient.save(); 
@@ -68,8 +72,8 @@ const show = (req, res, next) => {
             message:'An error occurred!!!'
     })
     } 
-}*/
-const store = (req, res, next) => { 
+}
+/*const store = (req, res, next) => { 
 let patient = new dynpgfrdr({
     patientName: req.body.patientName,
     patientAge: req.body.patientAge,
@@ -84,7 +88,7 @@ let patient = new dynpgfrdr({
     images : req.body.images,
     /*pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
     xraysImages: req.body.xraysImages,
-    drugSheetImages: req.body.drugSheetImages,*/
+    drugSheetImages: req.body.drugSheetImages,
     doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
     abnormal_Symptoms : req.body.abnormal_Symptoms,
     additional_Info : req.body.additional_Info
@@ -102,7 +106,7 @@ let patient = new dynpgfrdr({
     })
 })
 
-}
+}*/
 
 //Update Patient Information
 /*const update =async(req,res)=>{ 
