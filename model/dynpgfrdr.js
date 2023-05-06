@@ -38,7 +38,7 @@ const PatientSchemaByDoctor = new Schema({
         default: Date.now()
     },
     images:{
-        type :[Object]
+        type : String
     },
     //Images : Start Point =>
     //Image :
