@@ -34,7 +34,7 @@ const show = (req, res, next) => {
 
 
 //Adding a new Patient
-const store = async(req,res)=>{ 
+/*const store = async(req,res)=>{ 
     try{ 
      const result=await cloudinary.uploader.upload(req.file.path); 
      let patient=new dynpgfrdr({ 
@@ -68,8 +68,8 @@ const store = async(req,res)=>{
             message:'An error occurred!!!'
     })
     } 
-}
-/* (req, res, next) => { 
+}*/
+const store = (req, res, next) => { 
 let patient = new dynpgfrdr({
     patientName: req.body.patientName,
     patientAge: req.body.patientAge,
@@ -81,10 +81,13 @@ let patient = new dynpgfrdr({
     diagnosisOfDisease: req.body.diagnosisOfDisease,
     drugs_names: req.body.drugs_names,
     patientGender: req.body.patientGender,
-    pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
+    images : req.body.images,
+    /*pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
     xraysImages: req.body.xraysImages,
-    drugSheetImages: req.body.drugSheetImages,
-    doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes
+    drugSheetImages: req.body.drugSheetImages,*/
+    doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
+    abnormal_Symptoms : req.body.abnormal_Symptoms,
+    additional_Info : req.body.additional_Info
 })
 
     patient.save()
@@ -95,15 +98,14 @@ let patient = new dynpgfrdr({
 })
     .catch(error =>{
         res.json({
-            message:'An error occurred!!!'
+            message:'An error occurred!!!' + error
     })
-
 })
 
-}*/
+}
 
 //Update Patient Information
-const update =async(req,res)=>{ 
+/*const update =async(req,res)=>{ 
     try{ 
      let Dynpgfrdr=await dynpgfrdr.findById(req.params.id) 
      await cloudinary.uploader.destroy(Dynpgfrdr.cloudinary_id) 
@@ -138,13 +140,12 @@ const update =async(req,res)=>{
             message: 'An error Occured!!!'
         })
     }
-}
+}*/
 
 
 
 
-
-/*(req, res, next) => { 
+const update = (req, res, next) => {
 let patientID = req.body.patientID
 let updatedData = {
     patientName: req.body.patientName,
@@ -157,10 +158,14 @@ let updatedData = {
     diagnosisOfDisease: req.body.diagnosisOfDisease,
     drugs_names: req.body.drugs_names,
     patientGender: req.body.patientGender,
-    pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
+    images : req.body.images,
+   /* pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
     xraysImages: req.body.xraysImages,
-    drugSheetImages: req.body.drugSheetImages,
-    doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes
+    drugSheetImages: req.body.drugSheetImages,*/
+    doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
+    doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
+    abnormal_Symptoms : req.body.abnormal_Symptoms,
+    additional_Info : req.body.additional_Info
 }
 
 dynpgfrdr.findByIdAndUpdate(patientID, {$set: updatedData})
@@ -175,7 +180,7 @@ res.json({
     })
 })
 }
-*/
+
 //Delete Patient information
 
 const destroy =  async (req, res) => {
