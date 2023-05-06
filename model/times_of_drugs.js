@@ -21,6 +21,9 @@ const times_of_Drugs = new Schema({
     time_three : {
         type : [Object]
     },
+    every_When :{
+        type :[Object]
+    },
     usage_of_drug : {
         type : [Object]
     }
