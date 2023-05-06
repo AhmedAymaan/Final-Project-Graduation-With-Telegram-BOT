@@ -14,7 +14,7 @@ const index = (req, res, next) => {
     })
 }
 
-//Show a Drug Name and It's Times By ID
+//Show a Drugs Info By it's Name
 const show = (req, res, next) => {
     let drug_name = req.body.drug_name
     times_of_Drugs.find({drug_name:drug_name})
@@ -38,6 +38,7 @@ let drug = new times_of_Drugs({
     time_one : req.body.time_one,
     time_two : req.body.time_two,
     time_three : req.body.time_three,
+    every_When : req.body.every_When,
     usage_of_drug : req.body.usage_of_drug
 
 })
@@ -59,17 +60,18 @@ let drug = new times_of_Drugs({
 
 //Update  Drug Name and It's Times By ID
 const update = (req, res, next) => { 
-let drug_name = req.body.drug_name
+let drug_ID = req.body.drug_ID
 let updatedData = {
     drug_name : req.body.drug_name,
     how_often : req.body.how_often,
     time_one : req.body.time_one,
     time_two : req.body.time_two,
     time_three : req.body.time_three,
+    every_When : req.body.every_When,
     usage_of_drug : req.body.usage_of_drug
 }
 
-times_of_Drugs.findOneAndUpdate({drug_name:drug_name}, {$set: updatedData})
+times_of_Drugs.findByIdAndUpdate(drug_ID, {$set: updatedData})
 .then(() => {
 res.json({
     message: 'Drug and It\'s Times updated successfully!'
@@ -82,11 +84,11 @@ res.json({
 })
 }
 
-//Delete Drug and It's Times
+//Delete Drug and It's Times by ID
 
 const destroy = (req, res, next) => { 
-    let drug_name = req.body.drug_name
-    times_of_Drugs.findOneAndRemove({drug_name:drug_name})
+    let drug_ID = req.body.drug_ID
+    times_of_Drugs.findByIdAndRemove(drug_ID)
 .then(() => {
     res.json({
         message: 'Drug and It\'s Times Deleted successfully!!!'
