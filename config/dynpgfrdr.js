@@ -4,7 +4,7 @@ const upload=require('../utils/multer');
 const cloudinary=require('../utils/cloudinary'); 
 // Show the list of Patients
 const index = (req, res, next) => {
-    dynpgfrdr.find()
+    dynpgfrdr.find({doctorID: req.body.doctorID,})
     .then(response => {
     res.json({
     response
@@ -37,7 +37,8 @@ const show = (req, res, next) => {
 const store = async(req,res)=>{ 
     try{ 
      const result=await cloudinary.uploader.upload(req.file.path); 
-     let patient=new dynpgfrdr({ 
+     let patient=new dynpgfrdr({
+    doctorID: req.body.doctorID,
     patientName: req.body.patientName,
     patientAge: req.body.patientAge,
     patientPhoneNumber: req.body.patientPhoneNumber,
@@ -152,6 +153,7 @@ let patient = new dynpgfrdr({
 const update = (req, res, next) => {
 let patientID = req.body.patientID
 let updatedData = {
+    doctorID: req.body.doctorID,
     patientName: req.body.patientName,
     patientAge: req.body.patientAge,
     patientPhoneNumber: req.body.patientPhoneNumber,
