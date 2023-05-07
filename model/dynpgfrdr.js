@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const PatientSchemaByDoctor = new Schema({
+    doctorID:{
+      type : String
+    },
     patientName: {
         type: String
     },
@@ -28,7 +31,7 @@ const PatientSchemaByDoctor = new Schema({
         type: String
     },
     drugs_names: {
-        type: [Object]
+        type: String
     },
     patientGender: {
         type: String
@@ -37,12 +40,12 @@ const PatientSchemaByDoctor = new Schema({
         type: Date,
         default: Date.now()
     },
-   /* images:{
+    images:{
         type : String
-    },*/
+    },
     //Images : Start Point =>
     //Image :
-    avatar:{
+  /*  avatar:{
 		type:String
 	},
     // ID of Image in Cloudinary :
@@ -50,7 +53,7 @@ const PatientSchemaByDoctor = new Schema({
 		type: String
 	},
     //End Of Images.
-   /* xraysImages: {
+    xraysImages: {
         type: String
     },
     drugSheetImages: {
