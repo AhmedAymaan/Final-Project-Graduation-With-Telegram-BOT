@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const times_of_Drugs = new Schema({
+    patientID:{
+        type : String
+    },
     drug_name : {
         type : [Object],
         required : "Name of Drug is Required."
