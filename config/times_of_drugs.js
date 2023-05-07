@@ -1,7 +1,7 @@
 const times_of_Drugs = require('../model/times_of_drugs');
 // Show the All Times of Drugs.
 const index = (req, res, next) => {
-    times_of_Drugs.find()
+    times_of_Drugs.find({patientID:req.body.patientID})
     .then(response => {
     res.json({
     response
@@ -33,6 +33,7 @@ const show = (req, res, next) => {
 //Adding a New Drug Name and It's Times
 const store = (req, res, next) => { 
 let drug = new times_of_Drugs({
+    patientID : req.body.patientID,
     drug_name : req.body.drug_name,
     how_often : req.body.how_often,
     time_one : req.body.time_one,
@@ -62,6 +63,7 @@ let drug = new times_of_Drugs({
 const update = (req, res, next) => { 
 let drug_ID = req.body.drug_ID
 let updatedData = {
+    patientID : req.body.patientID,
     drug_name : req.body.drug_name,
     how_often : req.body.how_often,
     time_one : req.body.time_one,
