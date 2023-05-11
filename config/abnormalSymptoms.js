@@ -62,9 +62,9 @@ const updateInfo = (req, res, next) => {
 
     
     let updatedData = {
-        abnormalsymptoms: req.body.abnormalsymptoms,
-        patientName: req.body.patientName,
-        doctorName: req.body.doctorName
+        abnormalsymptoms: req.body.abnormalsymptoms || abnormalSymptoms.abnormalsymptoms,
+        patientName: req.body.patientName || abnormalSymptoms.patientName,
+        doctorName: req.body.doctorName || abnormalSymptoms.doctorName
     }
     
     abnormalSymptoms.findByIdAndUpdate(ID, {$set: updatedData})
