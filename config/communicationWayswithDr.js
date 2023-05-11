@@ -31,10 +31,10 @@ const updateInfo = (req, res, next) => {
 
     
     let updatedData = {
-        WhatsApp_Link: req.body.WhatsApp_Link,
-        Telegram_Link: req.body.Telegram_Link,
-        FaceBook_Link: req.body.FaceBook_Link,
-        Gmail_Link: req.body.Gmail_Link,
+        WhatsApp_Link: req.body.WhatsApp_Link || Ways.WhatsApp_Link,
+        Telegram_Link: req.body.Telegram_Link || Ways.Telegram_Link,
+        FaceBook_Link: req.body.FaceBook_Link || Ways.FaceBook_Link,
+        Gmail_Link: req.body.Gmail_Link || Ways.Gmail_Link
     }
     
     Ways.findByIdAndUpdate(ID, {$set: updatedData})
@@ -59,7 +59,7 @@ const destroy = (req, res, next) => {
         WhatsApp_Link: req.body.WhatsApp_Link,
         Telegram_Link: req.body.Telegram_Link,
         FaceBook_Link: req.body.FaceBook_Link,
-        Gmail_Link: req.body.Gmail_Link,
+        Gmail_Link: req.body.Gmail_Link
     }
     
     
