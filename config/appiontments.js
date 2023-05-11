@@ -104,6 +104,7 @@ const store = async (req, res) => {
         doctorID,
         doctorName,
         patientName,
+        reservedDay,
         appointmentNo
     } = req.body;
     try {
@@ -129,6 +130,7 @@ const store = async (req, res) => {
             doctorID,
             doctorName,
             patientName,
+            reservedDay,
             appointmentNo
         });
         //const salt = await bcrypt.genSalt(10);
