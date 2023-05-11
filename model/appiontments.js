@@ -11,6 +11,9 @@ const appointment = new Schema({
   doctorName : {
     type : String
   },
+  reservedDay : {
+    type : String
+  },
   patientName:{
     type : String
   },
