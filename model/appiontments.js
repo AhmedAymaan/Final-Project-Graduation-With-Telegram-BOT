@@ -11,10 +11,10 @@ const appointment = new Schema({
   doctorName : {
     type : String
   },
-  reservedDay : {
+  patientName:{
     type : String
   },
-  patientName:{
+   reservedDay : {
     type : String
   },
   appointmentNo : {
