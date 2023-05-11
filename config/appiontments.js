@@ -116,6 +116,14 @@ const store = async (req, res) => {
           .status(409)
           .json({ message: 'Appointment Number already Taken' });
       }
+      let patientname = await appointment.findOne({
+        patientName: req.body.patientName
+      });
+      if (patientname) {
+        return res
+          .status(409)
+          .json({ message: 'Patient Name already Exist' });
+      }
 
         appointmentno = new appointment({
             doctorID,
