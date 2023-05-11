@@ -61,9 +61,9 @@ cancerType.save()
 const update = (req, res, next) => { 
 let cancerTypeID = req.body.cancerTypeID
 let updatedData = {
-    cancer_name: req.body.cancer_name,
-    cancer_info: req.body.cancer_info,
-    symptoms_of_cancer: req.body.symptoms_of_cancer,
+    cancer_name: req.body.cancer_name || cancer_Type.cancer_name,
+    cancer_info: req.body.cancer_info || cancer_Type.cancer_info,
+    symptoms_of_cancer: req.body.symptoms_of_cancer || cancer_Type.symptoms_of_cancer
 }
 
 cancer_Type.findByIdAndUpdate(cancerTypeID, {$set: updatedData})
