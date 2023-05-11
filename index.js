@@ -14,7 +14,7 @@ const cancer_Type = require('./routes/genralCancerInfo');
 const times_of_drugs = require('./routes/times_of_drugs');
 const communicationWayswithDr = require('./routes/communicationWayswithDr')
 const abnormalSymptoms = require('./routes/abnormalSymptoms')
-
+const Appointment = require('./routes/appiontments')
 //
 //
 //
@@ -60,14 +60,16 @@ app.listen(PORT, async () => {
 
 
 //Cruds
+app.use('/appointment', Appointment)
 app.use('/api/patient', dynpgfrdrRoute)
 app.use('/setting', auth)
 require('./helpers/extend-node-input-validator')
-app.use('/changepassword',changepassword )
+//app.use('/changepassword',changepassword )
 app.use('/cancer', cancer_Type)
 app.use('/drug_times', times_of_drugs)
 app.use('/communicationWays', communicationWayswithDr)
 app.use('/symptoms', abnormalSymptoms)
+
 
 
 
@@ -393,5 +395,5 @@ With my wishes for a speedy recovery, Ahmed Ayman Al-Saee..🤍
   })
 })
 app.use(bot.webhookCallback('/secret-path'))
-bot.telegram.setWebhook('https://baby-blue-salmon-toga.cyclic.app/secret-path')
+bot.telegram.setWebhook('https://eb96-62-114-104-174.eu.ngrok.io/secret-path')
 
