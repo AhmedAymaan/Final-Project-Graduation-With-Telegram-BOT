@@ -6,12 +6,12 @@ const updateInfo = (req, res, next) => {
 
     
     let updatedData = {
-        name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
-        phone: req.body.phone,
-        specialization: req.body.specialization,
-        Dates: req.body.Dates
+        name: req.body.name || User.name,
+        username: req.body.username || User.username,
+        email: req.body.email || User.email,
+        phone: req.body.phone || User.phone,
+        specialization: req.body.specialization || User.specialization,
+        Dates: req.body.Dates || User.Dates
     }
     
     User.findByIdAndUpdate(doctorID, {$set: updatedData})
