@@ -3,7 +3,13 @@ const Schema = mongoose.Schema;
 
 
 const abnormalSymptoms = new Schema({
-abnormalsymptoms: {
+  doctorID : {
+    type : String
+  },
+  patientID : {
+    type : String
+  },
+  abnormalsymptoms: {
   type: String,
   },
 patientName: {
