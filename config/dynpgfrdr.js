@@ -110,7 +110,7 @@ let patient = new dynpgfrdr({
 }*/
 
 //Update Patient Information
-/*const update =async(req,res)=>{ 
+const update =async(req,res)=>{ 
     try{ 
      let Dynpgfrdr=await dynpgfrdr.findById(req.params.id) 
      await cloudinary.uploader.destroy(Dynpgfrdr.cloudinary_id) 
@@ -145,29 +145,30 @@ let patient = new dynpgfrdr({
             message: 'An error Occured!!!'
         })
     }
-}*/
+}
 
 
 
-
+/*
 const update = (req, res, next) => {
 let patientID = req.body.patientID
 let updatedData = {
-    doctorID: req.body.doctorID,
-    patientName: req.body.patientName,
-    patientAge: req.body.patientAge,
-    patientPhoneNumber: req.body.patientPhoneNumber,
-    patientUsername: req.body.patientUsername,
-    patientEmail: req.body.patientEmail,
-    patientPassword: req.body.patientPassword,
-    cancerType: req.body.cancerType,
-    diagnosisOfDisease: req.body.diagnosisOfDisease,
-    drugs_names: req.body.drugs_names,
-    patientGender: req.body.patientGender,
-    images : req.body.images,
-   /* pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
+    doctorID: req.body.doctorID || dynpgfrdr.doctorID,
+    patientName: req.body.patientName || dynpgfrdr.patientName,
+    patientAge: req.body.patientAge || dynpgfrdr.patientAge,
+    patientPhoneNumber: req.body.patientPhoneNumber || dynpgfrdr.patientPhoneNumber,
+    patientUsername: req.body.patientUsername || dynpgfrdr.patientUsername,
+    patientEmail: req.body.patientEmail || dynpgfrdr.patientEmail,
+    patientPassword: req.body.patientPassword || dynpgfrdr.patientPassword,
+    cancerType: req.body.cancerType || dynpgfrdr.cancerType,
+    diagnosisOfDisease: req.body.diagnosisOfDisease || dynpgfrdr.diagnosisOfDisease,
+    drugs_names: req.body.drugs_names || dynpgfrdr.drugs_names,
+    patientGender: req.body.patientGender || dynpgfrdr.patientGender,
+    avatar: result.secure_url || dynpgfrdr.avatar, 
+    cloudinary_id:result.public_id || dynpgfrdr.cloudinary_id,
+    pathologicalAnalysisImages: req.body.pathologicalAnalysisImages,
     xraysImages: req.body.xraysImages,
-    drugSheetImages: req.body.drugSheetImages,*/
+    drugSheetImages: req.body.drugSheetImages,
     doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
     doctorInstructionsAndNotes: req.body.doctorInstructionsAndNotes,
     abnormal_Symptoms : req.body.abnormal_Symptoms,
@@ -186,7 +187,7 @@ res.json({
     })
 })
 }
-
+*/
 //Delete Patient information
 
 const destroy =  async (req, res) => {
