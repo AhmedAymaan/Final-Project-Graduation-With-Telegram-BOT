@@ -151,7 +151,60 @@ const store = async (req, res) => {
         res.status(500).send("Error in Saving");
     }
 }
+// Show the All Appointments For Doctor By doctor ID.
+const index = (req, res, next) => {
+    Appointment.find({doctorID:req.body.doctorID})
+    .then(response => {
+    res.json({
+    response
+    })  
+})
+    .catch(error => {
+        res.json({
+            message: 'An error Occured...!'
+        })
+    })
+}
 
+//Show an Appointment For a Specfic Patient By Patient Name.
+const show = (req, res, next) => {
+    let patientName = req.body.patientName
+    Appointment.find({patientName:patientName})
+    .then(response => {
+    res.json({
+    response
+})
+})
+    .catch(err => {
+        message : 'An error occurred...!'
+})
+
+}
+
+
+//Delete All Appointments for a Doctor by Doctor ID.
+
+const destroy = (req, res, next) => { 
+    let doctorID = req.body.doctorID
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        Appointment.findOneAndRemove(doctorID)
+    
+    
+.then(() => {
+    res.json({
+        message: 'All Appointments Deleted successfully!!!'
+    })
+})
+    .catch(error => {
+        res.json({
+        message: 'An error Occured!!!'
+    })
+})
+}}
 module.exports = {
-    store
+    store,
+    index,
+    show,
+    destroy
 }
