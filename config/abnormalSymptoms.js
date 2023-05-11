@@ -2,7 +2,7 @@ const abnormalSymptoms = require('../model/abnormalSymptoms');
 
 // Show the list of Abnormal Symptoms To Doctor.
 const index = (req, res, next) => {
-    abnormalSymptoms.find()
+    abnormalSymptoms.find({doctorID : doctorID})
     .then(response => {
     res.json({
     response
@@ -32,6 +32,8 @@ const show = (req, res, next) => {
 //Add Abnormal Symptoms By Patient.
 const store = (req, res, next) => { 
     let AbnormalSymptoms = new abnormalSymptoms({
+        doctorID : req.body.doctorID,
+        patientID : req.body.patientID,
         abnormalsymptoms: req.body.abnormalsymptoms,
         patientName: req.body.patientName,
         doctorName: req.body.doctorName
