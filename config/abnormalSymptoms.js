@@ -1,8 +1,9 @@
 const abnormalSymptoms = require('../model/abnormalSymptoms');
 
+
 // Show the list of Abnormal Symptoms To Doctor.
 const index = (req, res, next) => {
-    abnormalSymptoms.find({doctorID : req.body.doctorID})
+    abnormalSymptoms.find({d_id : req.body.d_id})
     .then(response => {
     res.json({
     response
@@ -32,8 +33,7 @@ const show = (req, res, next) => {
 //Add Abnormal Symptoms By Patient.
 const store = (req, res, next) => { 
     let AbnormalSymptoms = new abnormalSymptoms({
-        doctorID : req.body.doctorID,
-        patientID : req.body.patientID,
+        d_id : req.body.d_id,
         abnormalsymptoms: req.body.abnormalsymptoms,
         patientName: req.body.patientName,
         doctorName: req.body.doctorName
@@ -60,16 +60,17 @@ const store = (req, res, next) => {
 
 //Update Abnormal Symptoms By Patient.
 const updateInfo = (req, res, next) => { 
-    let ID = req.body.ID
+    let d_id = req.body.d_id
 
     
     let updatedData = {
+        d_id : req.body.d_id || abnormalSymptoms.d_id,
         abnormalsymptoms: req.body.abnormalsymptoms || abnormalSymptoms.abnormalsymptoms,
         patientName: req.body.patientName || abnormalSymptoms.patientName,
         doctorName: req.body.doctorName || abnormalSymptoms.doctorName
     }
     
-    abnormalSymptoms.findByIdAndUpdate(ID, {$set: updatedData})
+    abnormalSymptoms.findOneAndUpdate(d_id, {$set: updatedData})
     .then(() => {
     res.json({
         message: 'Abnormal Symptoms Info. updated successfully!'
