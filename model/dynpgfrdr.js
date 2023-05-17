@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const PatientSchemaByDoctor = new Schema({
-    doctorID:{
+    d_id:{
       type : String
     },
     patientName: {
@@ -40,12 +40,12 @@ const PatientSchemaByDoctor = new Schema({
         type: Date,
         default: Date.now()
     },
-   /* images:{
+    image:{
         type : String
-    },*/
+    },
     //Images : Start Point =>
     //Image :
-    avatar:{
+  /*  avatar:{
 		type:String
 	},
     // ID of Image in Cloudinary :
@@ -53,7 +53,7 @@ const PatientSchemaByDoctor = new Schema({
 		type: String
 	},
     //End Of Images.
-    /*xraysImages: {
+    xraysImages: {
         type: String
     },
     drugSheetImages: {
