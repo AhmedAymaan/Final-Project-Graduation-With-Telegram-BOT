@@ -3,20 +3,18 @@ const Schema = mongoose.Schema;
 
 
 const abnormalSymptoms = new Schema({
-  doctorID : {
-    type : String
+  d_id: {
+    type: String
   },
-  patientID : {
-    type : String
-  },
+
   abnormalsymptoms: {
-  type: String,
+    type: String,
   },
-patientName: {
-  type: String,
+  patientName: {
+    type: String,
   },
   doctorName: {
-  type : String
- }
-  });
-  module.exports = mongoose.model('AbnormalSymptoms', abnormalSymptoms);
+    type: String
+  }
+});
+module.exports = mongoose.model('AbnormalSymptoms', abnormalSymptoms);
