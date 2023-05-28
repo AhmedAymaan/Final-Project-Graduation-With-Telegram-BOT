@@ -4,20 +4,23 @@ const Schema = mongoose.Schema;
 
 
 const communicationWays = new Schema({
-WhatsApp_Link: {
-  type: String,
+  d_id: {
+    type: Number
   },
-Telegram_Link: {
+  WhatsApp_Link: {
+    type: String,
+  },
+  Telegram_Link: {
   },
   FaceBook_Link: {
-  type: String,
+    type: String,
   },
   Gmail_Link: {
-  type: String,
+    type: String,
   },
-LastUpdateDate: {
+  LastUpdateDate: {
     type: Date,
     default: Date.now()
-    }
-  }); 
+  }
+});
 module.exports = mongoose.model('CommunicationWays', communicationWays);
