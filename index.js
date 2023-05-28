@@ -420,7 +420,7 @@ bot.telegram.setWebhook('https://eb96-62-114-104-174.eu.ngrok.io/secret-path')*/
 
 
 
-
+/*
 
 
 const TelegramBot = require("node-telegram-bot-api");
@@ -455,4 +455,4 @@ bot.on("message", async (msg) => {
 
     bot.sendMessage(chatId, generatedText);
 });
-
+*/
